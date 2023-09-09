@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="header">
+    <div class="logo"></div>
+    <div class="info">
+        <h1>Company Name</h1>
+        <p>Brief Description</p>
+    </div>
+</div>
+       
+      
+      
+    <div class="p-5 bg-white rounded shadow mb-5">
+      <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+        <li class="nav-item flex-sm-fill">
+          <a id="home-tab" data-toggle="tab" href="{% url 'teamview:hteam'  %}" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold {% if request.resolver_match.url_name == 'hteam' %}active{% else %} {% endif %}">Hittiers</a>
+        </li>
+        {% comment %} <li class="nav-item flex-sm-fill">
+          <a id="profile-tab" data-toggle="tab" href="{% url 'teamview:pteam' %}" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold {% if request.resolver_match.url_name == 'pteam' %}active {% endif %}">Pitchers</a>
+        </li> {% endcomment %}
+
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-4 py-5 show {% if request.resolver_match.url_name == 'hteam' %}active{% else %} {% endif %}">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Age</th>
+                        <th>obp</th>
+                        <th>T</th>
+                        <th>hits</th>
+                        <th>avg</th>
+                        <th>HR</th>
+                        <th>SO</th>
+                        <th>SB</th>
+                        <th>BB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for hit in hitting  %}
+                    {% if  hit.position_name != 'Pitcher' %}
+
+                    <tr>
+                        <td>{{hit.position}}</td>
+                        <td>{{hit.player_num}}</td>
+                        <td>{{hit.player_name}}</td>
+                        <td>{{hit.current_age}}</td>
+                        <th>{{hit.obp}}</th>
+                        <th>{{hit.triples}}</th>
+                        <th>{{hit.hits}}</th>
+                        <th>{{hit.avg}}</th>
+                        <th>{{hit.home_runs}}</th>
+                        <th>{{hit.strike_outs}}</th>
+                        <th>{{hit.sac_bunts}}</th>
+                        <th>{{hit.base_on_balls}}</th>
+                        
+                    </tr>
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+                 
+                </tbody>
+            </table>
+        </div>
+
+        <div class="p-5 bg-white rounded shadow mb-5">
+            <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+              
+                
+               
+                <li class="nav-item flex-sm-fill">
+                    <a id="profile-tab" data-toggle="tab" href="{% url 'teamview:pteam'  %}" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold {% if request.resolver_match.url_name == 'pteam' %}active {% endif %}">Pitchers</a>
+                  </li>
+                
+            </ul>
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Age</th>
+                        <th>obp</th>
+                        <th>T</th>
+                        <th>hits</th>
+                        <th>avg</th>
+                        <th>HR</th>
+                        <th>SO</th>
+                        <th>SB</th>
+                        <th>BB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for pit in pitch  %}
+                    {% if pit.position_name == 'Pitcher' %}
+                    <tr>
+                       
+                        <td>{{pit.position}}</td>
+                        <td>{{pit.player_num}}</td>
+                        <td>{{pit.player_name}}</td>
+                        <td>{{pit.current_age}}</td>
+                        <th>{{pit.obp}}</th>
+                        <th>{{pit.triples}}</th>
+                        <th>{{pit.hits}}</th>
+                        <th>{{pit.avg}}</th>
+                        <th>{{pit.home_runs}}</th>
+                        <th>{{pit.strike_outs}}</th>
+                        <th>{{pit.sac_bunts}}</th>
+                        <th>{{pit.base_on_balls}}</th>
+                     
+                     
+
+                    </tr>
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+                 
+                </tbody>
+            </table>
+        </div>
+
+      </div>
+{% endblock content %}

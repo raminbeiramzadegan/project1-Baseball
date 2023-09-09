@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="mt-4">Team</h3>
+<div class="row">
+<div class="col-md-6">
+    <table class="table data-table">
+        <thead class="bg-primary">
+          <tr>
+            <th scope="col">AL East</th>
+            <th scope="col">W</th>
+            <th scope="col">L</th>
+            <th scope="col">Pct</th>
+            <th scope="col">GB</th>
+            <th scope="col">L10</th>
+            <th scope="col">DIFF</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            {% for standing  in standings %}
+            {% if standing.id == 201  %}
+    
+            <tr>
+                {% comment %} log {% endcomment %}
+                <td>{% for info_name,info_logo in team_info.items %}
+                    
+                    {% if info_name in standing.team_name %}
+                        <img height="20" width="20" src="{{info_logo}}" alt="">
+                    {% else %}
+                        
+                     {% endif %}
+               
+                    {% endfor %}
+                    {% comment %} log {% endcomment %}
+                   <a href="">{{standing.team}}</a></td>
+                <td>{{standing.wins}}</td>
+                <td>{{standing.losses}}</td>
+                <td>{{standing.pct}}</td>
+                <td>{{standing.games_back}}</td>
+                <td>{{standing.last_ten_wins}}</td>
+                <td>{{standing.run_differential}}</td>
+            
+            </tr>
+            {% endif %}
+            {% endfor %}
+           
+      
+        </tbody>
+      </table>
+</div>
+<div class="col-md-6">
+    <table class="table data-table">
+        <thead>
+          <tr>
+            <th scope="col">NL East</th>
+            <th scope="col">W</th>
+            <th scope="col">L</th>
+            <th scope="col">Pct</th>
+            <th scope="col">GB</th>
+            <th scope="col">L10</th>
+            <th scope="col">DIFF</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            {% for standing  in standings %}
+            {% if standing.id == 204  %}
+    
+            <tr>
+
+                <td>{% for info_name,info_logo in team_info.items %}
+                    
+                    {% if info_name in standing.team_name %}
+                        <img height="20" width="20" src="{{info_logo}}" alt="">
+                    {% else %}
+                        
+                     {% endif %}
+               
+            {% endfor %} <a href="">{{standing.team}}</a></td>
+                <td>{{standing.wins}}</td>
+                <td>{{standing.losses}}</td>
+                <td>{{standing.pct}}</td>
+                <td>{{standing.games_back}}</td>
+                <td>{{standing.last_ten_wins}}</td>
+                <td>{{standing.run_differential}}</td>
+            
+            </tr>
+            {% endif %}
+            {% endfor %}
+           
+        </tbody>
+      </table>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table data-table">
+            <thead>
+              <tr>
+                <th scope="col">AL Central</th>
+                <th scope="col">W</th>
+                <th scope="col">L</th>
+                <th scope="col">Pct</th>
+                <th scope="col">GB</th>
+                <th scope="col">L10</th>
+                <th scope="col">DIFF</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for standing  in standings %}
+                {% if standing.id == 202  %}
+        
+                <tr>
+    
+                    <td>{% for info_name,info_logo in team_info.items %}
+                    
+                        {% if info_name in standing.team_name %}
+                            <img height="20" width="20" src="{{info_logo}}" alt="">
+                        {% else %}
+                            
+                         {% endif %}
+                   
+                {% endfor %} <a href="">{{standing.team}}</a></td>
+                    <td>{{standing.wins}}</td>
+                    <td>{{standing.losses}}</td>
+                    <td>{{standing.pct}}</td>
+                    <td>{{standing.games_back}}</td>
+                    <td>{{standing.last_ten_wins}}</td>
+                    <td>{{standing.run_differential}}</td>
+                
+                </tr>
+                {% endif %}
+                {% endfor %}
+               
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table data-table">
+            <thead>
+              <tr>
+                <th scope="col">NL Central</th>
+                <th scope="col">W</th>
+                <th scope="col">L</th>
+                <th scope="col">Pct</th>
+                <th scope="col">GB</th>
+                <th scope="col">L10</th>
+                <th scope="col">DIFF</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for standing  in standings %}
+                {% if standing.id == 205  %}
+        
+                <tr>
+    
+                    <td>{% for info_name,info_logo in team_info.items %}
+                    
+                        {% if info_name in standing.team_name %}
+                            <img height="20" width="20" src="{{info_logo}}" alt="">
+                        {% else %}
+                            
+                         {% endif %}
+                   
+                {% endfor %} <a href="">{{standing.team}}</a></td>
+                    <td>{{standing.wins}}</td>
+                    <td>{{standing.losses}}</td>
+                    <td>{{standing.pct}}</td>
+                    <td>{{standing.games_back}}</td>
+                    <td>{{standing.last_ten_wins}}</td>
+                    <td>{{standing.run_differential}}</td>
+                
+                </tr>
+                {% endif %}
+                {% endfor %}
+               
+            </tbody>
+          </table>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table data-table">
+            <thead>
+              <tr>
+                <th scope="col">AL West</th>
+                <th scope="col">W</th>
+                <th scope="col">L</th>
+                <th scope="col">Pct</th>
+                <th scope="col">GB</th>
+                <th scope="col">L10</th>
+                <th scope="col">DIFF</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for standing  in standings %}
+                {% if standing.id == 200  %}
+        
+                <tr>
+    
+                    <td>{% for info_name,info_logo in team_info.items %}
+                    
+                        {% if info_name in standing.team_name %}
+                            <img height="20" width="20" src="{{info_logo}}" alt="">
+                        {% else %}
+                            
+                         {% endif %}
+                   
+                {% endfor %} <a href="">{{standing.team}}</a></td>
+                    <td>{{standing.wins}}</td>
+                    <td>{{standing.losses}}</td>
+                    <td>{{standing.pct}}</td>
+                    <td>{{standing.games_back}}</td>
+                    <td>{{standing.last_ten_wins}}</td>
+                    <td>{{standing.run_differential}}</td>
+                
+                </tr>
+                {% endif %}
+                {% endfor %}
+               
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table data-table">
+            <thead>
+              <tr>
+                <th scope="col">NL West</th>
+                <th scope="col">W</th>
+                <th scope="col">L</th>
+                <th scope="col">Pct</th>
+                <th scope="col">GB</th>
+                <th scope="col">L10</th>
+                <th scope="col">DIFF</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for standing  in standings %}
+                {% if standing.id == 203  %}
+        
+                <tr>
+    
+                    <td>{% for info_name,info_logo in team_info.items %}
+                    
+                        {% if info_name in standing.team_name %}
+                            <img height="20" width="20" src="{{info_logo}}" alt="">
+                        {% else %}
+                            
+                         {% endif %}
+                   
+                {% endfor %} <a href="">{{standing.team}}</a></td>
+                    <td>{{standing.wins}}</td>
+                    <td>{{standing.losses}}</td>
+                    <td>{{standing.pct}}</td>
+                    <td>{{standing.games_back}}</td>
+                    <td>{{standing.last_ten_wins}}</td>
+                    <td>{{standing.run_differential}}</td>
+                
+                </tr>
+                {% endif %}
+                {% endfor %}
+               
+            </tbody>
+          </table>
+    </div>
+    
+</div>
+
+
+{% comment %} News {% endcomment %}
+<h3 class="mt-3 mr-2">News</h3>
+<div class="container">
+    
+    <div class="row">
+        {% for news in news_list %}
+        <div class="col-md-3 mb-4">
+            <div class="card">
+              
+                <a href="https://www.mlb.com/news/{{news.link}}"><img src="{{ news.image }}" class="card-img-top" alt="News Image"></a>
+                <div class="card-body">
+                    <a href="https://www.mlb.com/news/{{news.link}}"><h5 class="card-title"><b>{{ news.headline }}</b></h5></a>
+                    <p class="card-text">{{ news.body|truncatechars:"50" }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{ news.date }}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock content %}
